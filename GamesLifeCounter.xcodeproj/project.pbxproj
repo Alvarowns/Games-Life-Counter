@@ -1,0 +1,493 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C7096EAB2BDC44C300E90DD7 /* GamesLifeCounterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7096EAA2BDC44C300E90DD7 /* GamesLifeCounterApp.swift */; };
+		C7096EAD2BDC44C300E90DD7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7096EAC2BDC44C300E90DD7 /* ContentView.swift */; };
+		C7096EAF2BDC44C400E90DD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7096EAE2BDC44C400E90DD7 /* Assets.xcassets */; };
+		C7096EB22BDC44C400E90DD7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7096EB12BDC44C400E90DD7 /* Preview Assets.xcassets */; };
+		C7096EBB2BDC474B00E90DD7 /* DataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7096EBA2BDC474B00E90DD7 /* DataTest.swift */; };
+		C70C57A82BDD05A300486403 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C57A72BDD05A300486403 /* Extensions.swift */; };
+		C733E9DA2BDCE90E009C1D30 /* MainViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C733E9D92BDCE90E009C1D30 /* MainViewVM.swift */; };
+		C733E9DF2BDCE9CD009C1D30 /* SinglePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C733E9DE2BDCE9CD009C1D30 /* SinglePlayerView.swift */; };
+		C733E9E12BDCEAD2009C1D30 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C733E9E02BDCEAD2009C1D30 /* MenuView.swift */; };
+		C73E1D8E2BE23541001EA411 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = C73E1D8D2BE23541001EA411 /* GoogleMobileAds */; };
+		C73E1D922BE23600001EA411 /* AdMobBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E1D912BE23600001EA411 /* AdMobBannerView.swift */; };
+		C743C5702BDCFD63007E58F4 /* ChangeColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743C56F2BDCFD63007E58F4 /* ChangeColorButton.swift */; };
+		C78FCF9D2BE0DFF800672133 /* FormPlayersNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCF9C2BE0DFF800672133 /* FormPlayersNames.swift */; };
+		C78FCFA12BE1065F00672133 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C78FCFA02BE1065F00672133 /* Localizable.xcstrings */; };
+		C797F44D2BDD7B3D001B2337 /* ChangeColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C797F44C2BDD7B3D001B2337 /* ChangeColorPalette.swift */; };
+		C797F44F2BDD8752001B2337 /* PoisonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C797F44E2BDD8752001B2337 /* PoisonButton.swift */; };
+		C797F4512BDD9F3F001B2337 /* SinglePlayerViewHorizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C797F4502BDD9F3F001B2337 /* SinglePlayerViewHorizontal.swift */; };
+		C79C1E032BDFFDB6002DB885 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79C1E022BDFFDB6002DB885 /* Matches.swift */; };
+		C79C1E072BE003C2002DB885 /* MatchesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79C1E062BE003C2002DB885 /* MatchesList.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C7096EA72BDC44C300E90DD7 /* GamesLifeCounter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamesLifeCounter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7096EAA2BDC44C300E90DD7 /* GamesLifeCounterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesLifeCounterApp.swift; sourceTree = "<group>"; };
+		C7096EAC2BDC44C300E90DD7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C7096EAE2BDC44C400E90DD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7096EB12BDC44C400E90DD7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C7096EBA2BDC474B00E90DD7 /* DataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTest.swift; sourceTree = "<group>"; };
+		C70C57A72BDD05A300486403 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C733E9D92BDCE90E009C1D30 /* MainViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewVM.swift; sourceTree = "<group>"; };
+		C733E9DE2BDCE9CD009C1D30 /* SinglePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerView.swift; sourceTree = "<group>"; };
+		C733E9E02BDCEAD2009C1D30 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		C73E1D912BE23600001EA411 /* AdMobBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobBannerView.swift; sourceTree = "<group>"; };
+		C73E1D932BE23787001EA411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C743C56F2BDCFD63007E58F4 /* ChangeColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorButton.swift; sourceTree = "<group>"; };
+		C78FCF9C2BE0DFF800672133 /* FormPlayersNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPlayersNames.swift; sourceTree = "<group>"; };
+		C78FCFA02BE1065F00672133 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		C797F44C2BDD7B3D001B2337 /* ChangeColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorPalette.swift; sourceTree = "<group>"; };
+		C797F44E2BDD8752001B2337 /* PoisonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoisonButton.swift; sourceTree = "<group>"; };
+		C797F4502BDD9F3F001B2337 /* SinglePlayerViewHorizontal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerViewHorizontal.swift; sourceTree = "<group>"; };
+		C79C1E022BDFFDB6002DB885 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
+		C79C1E062BE003C2002DB885 /* MatchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesList.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7096EA42BDC44C300E90DD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C73E1D8E2BE23541001EA411 /* GoogleMobileAds in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C7096E9E2BDC44C300E90DD7 = {
+			isa = PBXGroup;
+			children = (
+				C7096EA92BDC44C300E90DD7 /* GamesLifeCounter */,
+				C7096EA82BDC44C300E90DD7 /* Products */,
+				C73E1D8F2BE2355E001EA411 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C7096EA82BDC44C300E90DD7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7096EA72BDC44C300E90DD7 /* GamesLifeCounter.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7096EA92BDC44C300E90DD7 /* GamesLifeCounter */ = {
+			isa = PBXGroup;
+			children = (
+				C73E1D932BE23787001EA411 /* Info.plist */,
+				C7096EAA2BDC44C300E90DD7 /* GamesLifeCounterApp.swift */,
+				C733E9DD2BDCE9B3009C1D30 /* Views */,
+				C733E9DC2BDCE9AC009C1D30 /* ViewModels */,
+				C733E9DB2BDCE9A4009C1D30 /* Models */,
+				C70C57A62BDD058C00486403 /* Extensions */,
+				C7096EAE2BDC44C400E90DD7 /* Assets.xcassets */,
+				C78FCFA02BE1065F00672133 /* Localizable.xcstrings */,
+				C73E1D902BE235E8001EA411 /* Ads */,
+				C7096EB02BDC44C400E90DD7 /* Preview Content */,
+			);
+			path = GamesLifeCounter;
+			sourceTree = "<group>";
+		};
+		C7096EB02BDC44C400E90DD7 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C7096EBA2BDC474B00E90DD7 /* DataTest.swift */,
+				C7096EB12BDC44C400E90DD7 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C70C57A62BDD058C00486403 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C70C57A72BDD05A300486403 /* Extensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		C733E9DB2BDCE9A4009C1D30 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C79C1E022BDFFDB6002DB885 /* Matches.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C733E9DC2BDCE9AC009C1D30 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C733E9D92BDCE90E009C1D30 /* MainViewVM.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		C733E9DD2BDCE9B3009C1D30 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C7096EAC2BDC44C300E90DD7 /* ContentView.swift */,
+				C733E9DE2BDCE9CD009C1D30 /* SinglePlayerView.swift */,
+				C797F4502BDD9F3F001B2337 /* SinglePlayerViewHorizontal.swift */,
+				C79C1E062BE003C2002DB885 /* MatchesList.swift */,
+				C743C56E2BDCFD4D007E58F4 /* Components */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C73E1D8F2BE2355E001EA411 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C73E1D902BE235E8001EA411 /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				C73E1D912BE23600001EA411 /* AdMobBannerView.swift */,
+			);
+			name = Ads;
+			sourceTree = "<group>";
+		};
+		C743C56E2BDCFD4D007E58F4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C733E9E02BDCEAD2009C1D30 /* MenuView.swift */,
+				C743C56F2BDCFD63007E58F4 /* ChangeColorButton.swift */,
+				C797F44C2BDD7B3D001B2337 /* ChangeColorPalette.swift */,
+				C797F44E2BDD8752001B2337 /* PoisonButton.swift */,
+				C78FCF9C2BE0DFF800672133 /* FormPlayersNames.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7096EA62BDC44C300E90DD7 /* GamesLifeCounter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7096EB52BDC44C400E90DD7 /* Build configuration list for PBXNativeTarget "GamesLifeCounter" */;
+			buildPhases = (
+				C7096EA32BDC44C300E90DD7 /* Sources */,
+				C7096EA42BDC44C300E90DD7 /* Frameworks */,
+				C7096EA52BDC44C300E90DD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GamesLifeCounter;
+			packageProductDependencies = (
+				C73E1D8D2BE23541001EA411 /* GoogleMobileAds */,
+			);
+			productName = GamesLifeCounter;
+			productReference = C7096EA72BDC44C300E90DD7 /* GamesLifeCounter.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7096E9F2BDC44C300E90DD7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					C7096EA62BDC44C300E90DD7 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = C7096EA22BDC44C300E90DD7 /* Build configuration list for PBXProject "GamesLifeCounter" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				es,
+			);
+			mainGroup = C7096E9E2BDC44C300E90DD7;
+			packageReferences = (
+				C73E1D8C2BE23541001EA411 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
+			productRefGroup = C7096EA82BDC44C300E90DD7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7096EA62BDC44C300E90DD7 /* GamesLifeCounter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7096EA52BDC44C300E90DD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7096EB22BDC44C400E90DD7 /* Preview Assets.xcassets in Resources */,
+				C7096EAF2BDC44C400E90DD7 /* Assets.xcassets in Resources */,
+				C78FCFA12BE1065F00672133 /* Localizable.xcstrings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7096EA32BDC44C300E90DD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C743C5702BDCFD63007E58F4 /* ChangeColorButton.swift in Sources */,
+				C78FCF9D2BE0DFF800672133 /* FormPlayersNames.swift in Sources */,
+				C79C1E032BDFFDB6002DB885 /* Matches.swift in Sources */,
+				C79C1E072BE003C2002DB885 /* MatchesList.swift in Sources */,
+				C797F44F2BDD8752001B2337 /* PoisonButton.swift in Sources */,
+				C797F4512BDD9F3F001B2337 /* SinglePlayerViewHorizontal.swift in Sources */,
+				C70C57A82BDD05A300486403 /* Extensions.swift in Sources */,
+				C733E9E12BDCEAD2009C1D30 /* MenuView.swift in Sources */,
+				C733E9DF2BDCE9CD009C1D30 /* SinglePlayerView.swift in Sources */,
+				C7096EAD2BDC44C300E90DD7 /* ContentView.swift in Sources */,
+				C7096EAB2BDC44C300E90DD7 /* GamesLifeCounterApp.swift in Sources */,
+				C797F44D2BDD7B3D001B2337 /* ChangeColorPalette.swift in Sources */,
+				C7096EBB2BDC474B00E90DD7 /* DataTest.swift in Sources */,
+				C733E9DA2BDCE90E009C1D30 /* MainViewVM.swift in Sources */,
+				C73E1D922BE23600001EA411 /* AdMobBannerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C7096EB32BDC44C400E90DD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C7096EB42BDC44C400E90DD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7096EB62BDC44C400E90DD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GamesLifeCounter/Preview Content\"";
+				DEVELOPMENT_TEAM = 72CAUS7668;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GamesLifeCounter/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlvsiOSdev.GamesLifeCounter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C7096EB72BDC44C400E90DD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GamesLifeCounter/Preview Content\"";
+				DEVELOPMENT_TEAM = 72CAUS7668;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GamesLifeCounter/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.AlvsiOSdev.GamesLifeCounter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7096EA22BDC44C300E90DD7 /* Build configuration list for PBXProject "GamesLifeCounter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7096EB32BDC44C400E90DD7 /* Debug */,
+				C7096EB42BDC44C400E90DD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7096EB52BDC44C400E90DD7 /* Build configuration list for PBXNativeTarget "GamesLifeCounter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7096EB62BDC44C400E90DD7 /* Debug */,
+				C7096EB72BDC44C400E90DD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C73E1D8C2BE23541001EA411 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C73E1D8D2BE23541001EA411 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C73E1D8C2BE23541001EA411 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = C7096E9F2BDC44C300E90DD7 /* Project object */;
+}
