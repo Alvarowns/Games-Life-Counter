@@ -10,6 +10,9 @@ import SwiftUI
 struct SinglePlayerViewHorizontal: View {
     @EnvironmentObject private var viewModel: MainViewVM
     
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    
     @Binding var playerLife: Int
     @Binding var playerPoisonCounters: Int
     @Binding var playerColor: Color
@@ -24,18 +27,29 @@ struct SinglePlayerViewHorizontal: View {
     var fontSize: CGFloat
     var isLeftSide: Bool
     var isHalfDown: Bool
+    var sizeClassFont: Font {
+            if horizontalSizeClass == .compact && verticalSizeClass == .regular {
+                // iPhone
+                return .title3
+            } else if horizontalSizeClass == .regular && verticalSizeClass == .regular {
+                // iPad
+                return .largeTitle
+            } else {
+                return .title3
+            }
+        }
     
     var body: some View {
         VStack {
             if isLeftSide {
                 if !isHalfDown {
                     HStack {
-                        ChangeColorButton(popOver: $popOver, font: .title3)
+                        ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 30))
                         
                         Spacer()
                         
                     }
-                    .font(.title3)
+                    .font(sizeClassFont)
                     .padding(.horizontal)
                     .padding(.top)
                     .fontWeight(.semibold)
@@ -53,8 +67,10 @@ struct SinglePlayerViewHorizontal: View {
                                 winnerName = playerName
                             }
                             .rotationEffect(.degrees(90))
-                            .font(.title3)
+                            .font(sizeClassFont)
                             .padding()
+                            .blur(radius: popOver ? 2.0 : 0.0)
+                            .disabled(popOver ? true : false)
                     }
                 }
             } else {
@@ -63,6 +79,7 @@ struct SinglePlayerViewHorizontal: View {
                         PoisonButton(poison: $poison, padding: 8)
                             .rotationEffect(.degrees(90))
                             .scaleEffect(CGSize(width: 1.0, height: 1.0))
+                            .blur(radius: popOver ? 2.0 : 0.0)
                         
                         Spacer()
                         
@@ -72,18 +89,20 @@ struct SinglePlayerViewHorizontal: View {
                                 winnerName = playerName
                             }
                             .rotationEffect(.degrees(90))
-                            .font(.title3)
+                            .font(sizeClassFont)
                             .padding()
+                            .blur(radius: popOver ? 2.0 : 0.0)
+                            .disabled(popOver ? true : false)
                     }
                 } else {
                     
                         HStack {
-                            ChangeColorButton(popOver: $popOver, font: .title3)
+                            ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 30))
                             
                             Spacer()
                             
                         }
-                        .font(.title3)
+                        .font(sizeClassFont)
                         .padding(.horizontal)
                         .padding(.top)
                         .fontWeight(.semibold)
@@ -93,7 +112,6 @@ struct SinglePlayerViewHorizontal: View {
             Spacer()
             
             ZStack {
-                if !popOver {
                     HStack {
                         if poison {
                             VStack(spacing: 50) {
@@ -120,40 +138,41 @@ struct SinglePlayerViewHorizontal: View {
                         }
                         
                         HStack {
-                            Spacer()
                             VStack(spacing: 50) {
                                 Button {
                                     playerLife -= 1
                                 } label: {
                                     Image(systemName: "minus.circle")
-                                        .font(.largeTitle)
+                                        .font(horizontalSizeClass == .compact ? .largeTitle : .custom("iPad", size: 50))
                                         .rotationEffect(.degrees(90))
                                 }
                                 
                                 Text("\(playerLife)")
-                                    .font(.custom("", size: fontSize))
-                                    .lineLimit(1)
+                                    .font(horizontalSizeClass == .compact ? .custom("iPhone", size: fontSize) : .custom("iPad", size: 100))
                                     .rotationEffect(.degrees(90))
                                 
                                 Button {
                                     playerLife += 1
                                 } label: {
                                     Image(systemName: "plus.circle")
-                                        .font(.largeTitle)
+                                        .font(horizontalSizeClass == .compact ? .largeTitle : .custom("iPad", size: 50))
                                 }
                             }
                             
                             Text(playerName)
                                 .multilineTextAlignment(.center)
                                 .rotationEffect(.degrees(90))
-                                .font(.title3)
+                                .font(sizeClassFont)
                                 .onTapGesture {
                                     changeName.toggle()
                                 }
+                            
                         }
+                        .disabled(popOver ? true : false)
                     }
+                    .blur(radius: popOver ? 2.0 : 0.0)
                     
-                } else {
+                if popOver {
                     ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, vertical: false)
                         .rotationEffect(.degrees(90))
                 }
@@ -176,17 +195,19 @@ struct SinglePlayerViewHorizontal: View {
                                     winnerName = playerName
                                 }
                                 .rotationEffect(.degrees(90))
-                                .font(.title3)
+                                .font(sizeClassFont)
                                 .padding()
+                                .blur(radius: popOver ? 2.0 : 0.0)
+                                .disabled(popOver ? true : false)
                     }
                 } else {
                         HStack {
-                            ChangeColorButton(popOver: $popOver, font: .title3)
+                            ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 30))
                             
                             Spacer()
                             
                         }
-                        .font(.title3)
+                        .font(sizeClassFont)
                         .padding(.horizontal)
                         .padding(.bottom)
                         .fontWeight(.semibold)
@@ -194,12 +215,12 @@ struct SinglePlayerViewHorizontal: View {
             } else {
                 if !isHalfDown {
                     HStack {
-                        ChangeColorButton(popOver: $popOver, font: .title3)
+                        ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 30))
                         
                         Spacer()
                         
                     }
-                    .font(.title3)
+                    .font(sizeClassFont)
                     .padding(.horizontal)
                     .padding(.bottom)
                     .fontWeight(.semibold)
@@ -208,6 +229,7 @@ struct SinglePlayerViewHorizontal: View {
                         PoisonButton(poison: $poison, padding: 8)
                             .rotationEffect(.degrees(90))
                             .scaleEffect(CGSize(width: 1.0, height: 1.0))
+                            .blur(radius: popOver ? 2.0 : 0.0)
                         
                         Spacer()
                         
@@ -217,16 +239,18 @@ struct SinglePlayerViewHorizontal: View {
                                 winnerName = playerName
                             }
                             .rotationEffect(.degrees(90))
-                            .font(.title3)
+                            .font(sizeClassFont)
                             .padding()
+                            .blur(radius: popOver ? 2.0 : 0.0)
+                            .disabled(popOver ? true : false)
                     }
                 }
             }
         }
         .shadow(radius: 1)
         .foregroundStyle(.white)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .bold()
-        .frame(maxWidth: .infinity)
         .background {
             playerColor
                 .onTapGesture {

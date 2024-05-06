@@ -45,6 +45,7 @@ struct ContentView: View {
                     }
                 }
                 
+                #warning("adUnitId para testing, cambiar a la de producción cuando se haya subido a la App Store.")
                 AdMobBannerView(adUnitId: "ca-app-pub-3940256099942544/2435281174")
                     .frame(width: GADAdSizeBanner.size.width, height: GADAdSizeBanner.size.height)
             }

@@ -50,7 +50,6 @@ struct ChangeColorPalette: View {
                     popOver = false
                 }
         }
-        .font(vertical ? .largeTitle : .headline)
         .padding()
         .background {
             Circle()

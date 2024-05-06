@@ -10,6 +10,9 @@ import SwiftUI
 struct SinglePlayerView: View {
     @EnvironmentObject private var viewModel: MainViewVM
     
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    
     @Binding var playerName: String
     @Binding var playerLife: Int
     @Binding var playerPoisonCounters: Int
@@ -24,105 +27,110 @@ struct SinglePlayerView: View {
     var fontSize: CGFloat
     
     var body: some View {
-            VStack {
-                HStack {
-                    ChangeColorButton(popOver: $popOver, font: .title)
-                    
-                    Spacer()
-                    
-                    
-                    Image(systemName: "crown")
-                        .onTapGesture {
-                            someoneWon.toggle()
-                            winnerName = playerName
-                        }
-                }
-                .font(.title)
-                .padding(.horizontal)
-                .padding(.top)
-                .fontWeight(.semibold)
+        VStack {
+            HStack {
+                ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 40))
                 
                 Spacer()
                 
-                ZStack {
-                    if !popOver {
-                        VStack {
-                            Text(playerName)
-                                .font(.largeTitle)
-                                .multilineTextAlignment(.center)
-                                .fontWeight(.medium)
-                                .onTapGesture {
-                                    changeName.toggle()
-                                }
-                            
-                            HStack(spacing: 50) {
-                                Button {
-                                    playerLife -= 1
-                                } label: {
-                                    Image(systemName: "minus.circle")
-                                        .font(.largeTitle)
-                                }
-                                
-                                Text("\(playerLife)")
-                                    .font(.custom("", size: fontSize))
-                                    .lineLimit(1)
-                                
-                                Button {
-                                    playerLife += 1
-                                } label: {
-                                    Image(systemName: "plus.circle")
-                                        .font(.largeTitle)
-                                }
-                            }
-                            
-                            if poison {
-                                HStack(spacing: 50) {
-                                    Button {
-                                        playerPoisonCounters -= 1
-                                    } label: {
-                                        Image(systemName: "minus.circle")
-                                            .font(.title)
-                                    }
-                                    Text("\(playerPoisonCounters)")
-                                        .font(.largeTitle)
-                                        .lineLimit(1)
-                                    Button {
-                                        playerPoisonCounters += 1
-                                    } label: {
-                                        Image(systemName: "plus.circle")
-                                            .font(.title)
-                                    }
-                                }
-                                .foregroundStyle(.black.opacity(0.3))
-                                .shadow(color: .black, radius: 1, x: 0, y: 1)
-                            }
+                
+                Image(systemName: "crown")
+                    .onTapGesture {
+                        someoneWon.toggle()
+                        winnerName = playerName
+                    }
+                    .font(horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 40))
+                    .blur(radius: popOver ? 2.0 : 0.0)
+                    .disabled(popOver ? true : false)
+            }
+            .font(.title)
+            .padding(.horizontal)
+            .padding(.top)
+            .fontWeight(.semibold)
+            
+            Spacer()
+            
+            ZStack {
+                VStack {
+                    Text(playerName)
+                        .font(.largeTitle)
+                        .multilineTextAlignment(.center)
+                        .fontWeight(.medium)
+                        .onTapGesture {
+                            changeName.toggle()
+                        }
+                    
+                    HStack(spacing: 50) {
+                        Button {
+                            playerLife -= 1
+                        } label: {
+                            Image(systemName: "minus.circle")
+                                .font(horizontalSizeClass == .compact ? .largeTitle : .custom("iPad", size: 100))
                         }
                         
-                    } else {
-                        ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, vertical: true)
-                            .padding(.bottom)
-                            .padding(.bottom)
+                        Text("\(playerLife)")
+                            .font(horizontalSizeClass == .compact ? .custom("iPhone", size: fontSize) : .custom("iPad", size: 240))
+                            .lineLimit(1)
+                        
+                        Button {
+                            playerLife += 1
+                        } label: {
+                            Image(systemName: "plus.circle")
+                                .font(horizontalSizeClass == .compact ? .largeTitle : .custom("iPad", size: 100))
+                        }
+                    }
+                    .disabled(popOver ? true : false)
+                    
+                    if poison {
+                        HStack(spacing: 50) {
+                            Button {
+                                playerPoisonCounters -= 1
+                            } label: {
+                                Image(systemName: "minus.circle")
+                                    .font(.title)
+                            }
+                            Text("\(playerPoisonCounters)")
+                                .font(.largeTitle)
+                                .lineLimit(1)
+                            Button {
+                                playerPoisonCounters += 1
+                            } label: {
+                                Image(systemName: "plus.circle")
+                                    .font(.title)
+                            }
+                        }
+                        .foregroundStyle(.black.opacity(0.3))
+                        .shadow(color: .black, radius: 1, x: 0, y: 1)
                     }
                 }
+                .blur(radius: popOver ? 2.0 : 0.0)
                 
-                Spacer()
-                
-                HStack {
-                    Spacer()
-                    PoisonButton(poison: $poison, padding: 15)
+                if popOver {
+                    ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, vertical: true)
+                        .padding(.bottom)
+                        .padding(.bottom)
                 }
             }
-            .shadow(radius: 1)
-            .foregroundStyle(.white)
-            .bold()
-            .frame(maxWidth: .infinity)
-            .background {
-                playerColor
-                    .onTapGesture {
-                        viewModel.changeLife = false
-                        viewModel.changePlayersNumbers = false
-                        popOver = false
-                    }
+            
+            Spacer()
+            
+            HStack {
+                Spacer()
+                PoisonButton(poison: $poison, padding: 15)
+                    .blur(radius: popOver ? 2.0 : 0.0)
+            }
+        }
+        .shadow(radius: 1)
+        .foregroundStyle(.white)
+        .bold()
+        .frame(maxWidth: .infinity)
+        .background {
+            playerColor
+                .onTapGesture {
+                    viewModel.changeLife = false
+                    viewModel.changePlayersNumbers = false
+                    popOver = false
+                }
         }
     }
 }
