@@ -26,6 +26,7 @@
 		C797F4512BDD9F3F001B2337 /* SinglePlayerViewHorizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C797F4502BDD9F3F001B2337 /* SinglePlayerViewHorizontal.swift */; };
 		C79C1E032BDFFDB6002DB885 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79C1E022BDFFDB6002DB885 /* Matches.swift */; };
 		C79C1E072BE003C2002DB885 /* MatchesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79C1E062BE003C2002DB885 /* MatchesList.swift */; };
+		C7FBC6B92BEB717C00BFACF3 /* MoreColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FBC6B82BEB717C00BFACF3 /* MoreColorsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		C797F4502BDD9F3F001B2337 /* SinglePlayerViewHorizontal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayerViewHorizontal.swift; sourceTree = "<group>"; };
 		C79C1E022BDFFDB6002DB885 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
 		C79C1E062BE003C2002DB885 /* MatchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesList.swift; sourceTree = "<group>"; };
+		C7FBC6B82BEB717C00BFACF3 /* MoreColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreColorsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				C797F44C2BDD7B3D001B2337 /* ChangeColorPalette.swift */,
 				C797F44E2BDD8752001B2337 /* PoisonButton.swift */,
 				C78FCF9C2BE0DFF800672133 /* FormPlayersNames.swift */,
+				C7FBC6B82BEB717C00BFACF3 /* MoreColorsView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				C7096EBB2BDC474B00E90DD7 /* DataTest.swift in Sources */,
 				C733E9DA2BDCE90E009C1D30 /* MainViewVM.swift in Sources */,
 				C73E1D922BE23600001EA411 /* AdMobBannerView.swift in Sources */,
+				C7FBC6B92BEB717C00BFACF3 /* MoreColorsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

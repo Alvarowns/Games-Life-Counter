@@ -20,14 +20,14 @@ struct ContentView: View {
         NavigationStack {
             VStack(spacing: 0) {
                 if viewModel.numberOfPlayers == 2 {
-                    SinglePlayerView(playerName: $viewModel.player2Name, playerLife: $viewModel.player2Life, playerPoisonCounters: $viewModel.player2PoisonCounters, playerColor: $viewModel.player2Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 120)
+                    SinglePlayerView(playerName: $viewModel.player2Name, playerLife: $viewModel.player2Life, playerPoisonCounters: $viewModel.player2PoisonCounters, playerColor: $viewModel.player2Color, playerTexture: $viewModel.player2Texture, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 120)
                         .rotation3DEffect(.degrees(180), axis: (x: 0.0, y: 1.0, z: 0.0))
                         .scaleEffect(x: 1, y: -1, anchor: .center)
                 } else if viewModel.numberOfPlayers == 3 || viewModel.numberOfPlayers == 4 {
                     HStack(spacing: 0) {
-                        SinglePlayerViewHorizontal(playerLife: $viewModel.player2Life, playerPoisonCounters: $viewModel.player2PoisonCounters, playerColor: $viewModel.player2Color, playerName: $viewModel.player2Name, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 60, isLeftSide: true, isHalfDown: false)
+                        SinglePlayerViewHorizontal(playerLife: $viewModel.player2Life, playerPoisonCounters: $viewModel.player2PoisonCounters, playerColor: $viewModel.player2Color, playerTexture: $viewModel.player2Texture, playerName: $viewModel.player2Name, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 60, isLeftSide: true, isHalfDown: false)
                         
-                        SinglePlayerViewHorizontal(playerLife: $viewModel.player3Life, playerPoisonCounters: $viewModel.player3PoisonCounters, playerColor: $viewModel.player3Color, playerName: $viewModel.player3Name, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 60, isLeftSide: false, isHalfDown: false)
+                        SinglePlayerViewHorizontal(playerLife: $viewModel.player3Life, playerPoisonCounters: $viewModel.player3PoisonCounters, playerColor: $viewModel.player3Color, playerTexture: $viewModel.player3Texture, playerName: $viewModel.player3Name, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 60, isLeftSide: false, isHalfDown: false)
                             .rotationEffect(.degrees(180))
                     }
                 }
@@ -35,12 +35,12 @@ struct ContentView: View {
                 MenuView()
                 
                 if viewModel.numberOfPlayers == 2 || viewModel.numberOfPlayers == 3 {
-                    SinglePlayerView(playerName: $viewModel.player1Name, playerLife: $viewModel.player1Life, playerPoisonCounters: $viewModel.player1PoisonCounters, playerColor: $viewModel.player1Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 120)
+                    SinglePlayerView(playerName: $viewModel.player1Name, playerLife: $viewModel.player1Life, playerPoisonCounters: $viewModel.player1PoisonCounters, playerColor: $viewModel.player1Color, playerTexture: $viewModel.player1Texture, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 120)
                 } else if viewModel.numberOfPlayers == 4 {
                     HStack(spacing: 0) {
-                        SinglePlayerViewHorizontal(playerLife: $viewModel.player1Life, playerPoisonCounters: $viewModel.player1PoisonCounters, playerColor: $viewModel.player1Color, playerName: $viewModel.player1Name, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 60, isLeftSide: true, isHalfDown: true)
+                        SinglePlayerViewHorizontal(playerLife: $viewModel.player1Life, playerPoisonCounters: $viewModel.player1PoisonCounters, playerColor: $viewModel.player1Color, playerTexture: $viewModel.player1Texture, playerName: $viewModel.player1Name, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 60, isLeftSide: true, isHalfDown: true)
                         
-                        SinglePlayerViewHorizontal(playerLife: $viewModel.player4Life, playerPoisonCounters: $viewModel.player4PoisonCounters, playerColor: $viewModel.player4Color, playerName: $viewModel.player4Name, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 60, isLeftSide: false, isHalfDown: true)
+                        SinglePlayerViewHorizontal(playerLife: $viewModel.player4Life, playerPoisonCounters: $viewModel.player4PoisonCounters, playerColor: $viewModel.player4Color, playerTexture: $viewModel.player4Texture, playerName: $viewModel.player4Name, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, fontSize: 60, isLeftSide: false, isHalfDown: true)
                             .rotationEffect(.degrees(180))
                     }
                 }

@@ -16,6 +16,7 @@ struct SinglePlayerViewHorizontal: View {
     @Binding var playerLife: Int
     @Binding var playerPoisonCounters: Int
     @Binding var playerColor: Color
+    @Binding var playerTexture: ImageResource
     @Binding var playerName: String
     @Binding var changeName: Bool
     @Binding var someoneWon: Bool
@@ -173,7 +174,7 @@ struct SinglePlayerViewHorizontal: View {
                     .blur(radius: popOver ? 2.0 : 0.0)
                     
                 if popOver {
-                    ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, vertical: false)
+                    ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, texture: $playerTexture, vertical: false)
                         .rotationEffect(.degrees(90))
                 }
             }
@@ -249,20 +250,19 @@ struct SinglePlayerViewHorizontal: View {
         }
         .shadow(radius: 1)
         .foregroundStyle(.white)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .bold()
         .background {
-            playerColor
-                .onTapGesture {
-                    viewModel.changeLife = false
-                    viewModel.changePlayersNumbers = false
-                    popOver = false
-                }
+                playerColor
+                    .onTapGesture {
+                        viewModel.changeLife = false
+                        viewModel.changePlayersNumbers = false
+                        popOver = false
+                    }
         }
+        .bold()
     }
 }
 
 #Preview {
-    SinglePlayerViewHorizontal(playerLife: .constant(20), playerPoisonCounters: .constant(0), playerColor: .constant(.isleColor1), playerName: .constant("Player 1"), changeName: .constant(false), someoneWon: .constant(false), winnerName: .constant(""), fontSize: 150, isLeftSide: true, isHalfDown: false)
+    SinglePlayerViewHorizontal(playerLife: .constant(20), playerPoisonCounters: .constant(0), playerColor: .constant(.isleColor1), playerTexture: .constant(.wool), playerName: .constant("Player 1"), changeName: .constant(false), someoneWon: .constant(false), winnerName: .constant(""), fontSize: 150, isLeftSide: true, isHalfDown: false)
         .environmentObject(MainViewVM())
 }

@@ -29,8 +29,13 @@ class MainViewVM: ObservableObject {
     
     var player1Color: Color = .isleColor1
     var player2Color: Color = .mountainColor1
-    var player3Color: Color = .swampColor1
+    var player3Color: Color = .plainsColor1
     var player4Color: Color = .forestColor1
+    
+    var player1Texture: ImageResource = .waves1
+    var player2Texture: ImageResource = .fire1
+    var player3Texture: ImageResource = .wheat1
+    var player4Texture: ImageResource = .forest1
     
     var player1Name: String = "Player 1"
     var player2Name: String = "Player 2"

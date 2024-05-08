@@ -17,6 +17,7 @@ struct SinglePlayerView: View {
     @Binding var playerLife: Int
     @Binding var playerPoisonCounters: Int
     @Binding var playerColor: Color
+    @Binding var playerTexture: ImageResource
     @Binding var changeName: Bool
     @Binding var someoneWon: Bool
     @Binding var winnerName: String
@@ -106,7 +107,7 @@ struct SinglePlayerView: View {
                 .blur(radius: popOver ? 2.0 : 0.0)
                 
                 if popOver {
-                    ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, vertical: true)
+                    ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, texture: $playerTexture, vertical: true)
                         .padding(.bottom)
                         .padding(.bottom)
                 }
@@ -125,17 +126,23 @@ struct SinglePlayerView: View {
         .bold()
         .frame(maxWidth: .infinity)
         .background {
-            playerColor
-                .onTapGesture {
-                    viewModel.changeLife = false
-                    viewModel.changePlayersNumbers = false
-                    popOver = false
-                }
+            ZStack {
+                Image(playerTexture)
+                    .resizable()
+                    .scaledToFill()
+                playerColor
+                    .blendMode(.multiply)
+                    .onTapGesture {
+                        viewModel.changeLife = false
+                        viewModel.changePlayersNumbers = false
+                        popOver = false
+                    }
+            }
         }
     }
 }
 
 #Preview {
-    SinglePlayerView(playerName: .constant("Player 1"), playerLife: .constant(20), playerPoisonCounters: .constant(0), playerColor: .constant(.isleColor1), changeName: .constant(false), someoneWon: .constant(false), winnerName: .constant(""), fontSize: 150)
+    SinglePlayerView(playerName: .constant("Player 1"), playerLife: .constant(20), playerPoisonCounters: .constant(0), playerColor: .constant(.isleColor1), playerTexture: .constant(.wool), changeName: .constant(false), someoneWon: .constant(false), winnerName: .constant(""), fontSize: 150)
         .environmentObject(MainViewVM())
 }
