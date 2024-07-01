@@ -24,7 +24,7 @@ struct PoisonButton: View {
             .background {
                 poison ? Circle().foregroundStyle(.black.opacity(0.3)).shadow(radius: 1) : nil
             }
-            .padding(5)
+            .padding()
     }
 }
 

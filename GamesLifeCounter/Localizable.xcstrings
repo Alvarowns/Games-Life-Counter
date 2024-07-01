@@ -71,6 +71,9 @@
         }
       }
     },
+    "Hello, World!" : {
+
+    },
     "Matches" : {
       "localizations" : {
         "es" : {

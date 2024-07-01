@@ -27,7 +27,7 @@ struct GamesLifeCounterApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppStateView()
                 .preferredColorScheme(.dark)
         }
         .environmentObject(MainViewVM())

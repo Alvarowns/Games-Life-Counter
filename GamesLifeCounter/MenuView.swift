@@ -17,93 +17,122 @@ struct MenuView: View {
             if !viewModel.changeLife && !viewModel.changePlayersNumbers {
                 Group {
                     Spacer()
-                    Image(systemName: "list.bullet.rectangle.portrait")
-                        .onTapGesture {
-                            list.toggle()
-                        }
-                        .navigationDestination(isPresented: $list) {
-                            MatchesList()
-                        }
+                    Button {
+                        list.toggle()
+                    } label: {
+                        Image(systemName: "list.bullet.rectangle.portrait")
+                    }
+                    .navigationDestination(isPresented: $list) {
+                        MatchesList()
+                    }
+                    
                     Spacer()
-                    Image(systemName: "arrow.circlepath")
-                        .onTapGesture {
-                            viewModel.player1Life = viewModel.startingLife
-                            viewModel.player2Life = viewModel.startingLife
-                            viewModel.player3Life = viewModel.startingLife
-                            viewModel.player4Life = viewModel.startingLife
-                        }
+                    
+                    Button {
+                        viewModel.player1Life = viewModel.startingLife
+                        viewModel.player2Life = viewModel.startingLife
+                        viewModel.player3Life = viewModel.startingLife
+                        viewModel.player4Life = viewModel.startingLife
+                    } label: {
+                        Image(systemName: "arrow.circlepath")
+                    }
+                    
                     Spacer()
-                    Image(systemName: "heart")
-                        .onTapGesture {
-                            viewModel.changeLife.toggle()
-                        }
+                    
+                    Button {
+                        viewModel.changeLife.toggle()
+                    } label: {
+                        Image(systemName: "heart")
+                    }
+                    
                     Spacer()
-                    Image(systemName: "person.2")
-                        .onTapGesture {
-                            viewModel.changePlayersNumbers.toggle()
-                        }
+                    
+                    Button {
+                        viewModel.changePlayersNumbers.toggle()
+                    } label: {
+                        Image(systemName: "person.2")
+                    }
+                    
                     Spacer()
                 }
             } else if viewModel.changeLife {
                 Group {
                     Spacer()
-                    Text("20")
-                        .onTapGesture {
-                            viewModel.startingLife = 20
-                            viewModel.player1Life = viewModel.startingLife
-                            viewModel.player2Life = viewModel.startingLife
-                            viewModel.player3Life = viewModel.startingLife
-                            viewModel.player4Life = viewModel.startingLife
-                            viewModel.changeLife.toggle()
-                        }
+                    
+                    Button {
+                        viewModel.startingLife = 20
+                        viewModel.player1Life = viewModel.startingLife
+                        viewModel.player2Life = viewModel.startingLife
+                        viewModel.player3Life = viewModel.startingLife
+                        viewModel.player4Life = viewModel.startingLife
+                        viewModel.changeLife.toggle()
+                    } label: {
+                        Text("20")
+                    }
+                    
                     Spacer()
-                    Text("30")
-                        .onTapGesture {
-                            viewModel.startingLife = 30
-                            viewModel.player1Life = viewModel.startingLife
-                            viewModel.player2Life = viewModel.startingLife
-                            viewModel.player3Life = viewModel.startingLife
-                            viewModel.player4Life = viewModel.startingLife
-                            viewModel.changeLife.toggle()
-                        }
+                    
+                    Button {
+                        viewModel.startingLife = 30
+                        viewModel.player1Life = viewModel.startingLife
+                        viewModel.player2Life = viewModel.startingLife
+                        viewModel.player3Life = viewModel.startingLife
+                        viewModel.player4Life = viewModel.startingLife
+                        viewModel.changeLife.toggle()
+                    } label: {
+                        Text("30")
+                    }
+                    
                     Spacer()
-                    Text("40")
-                        .onTapGesture {
-                            viewModel.startingLife = 40
-                            viewModel.player1Life = viewModel.startingLife
-                            viewModel.player2Life = viewModel.startingLife
-                            viewModel.player3Life = viewModel.startingLife
-                            viewModel.player4Life = viewModel.startingLife
-                            viewModel.changeLife.toggle()
-                        }
+                    
+                    Button {
+                        viewModel.startingLife = 40
+                        viewModel.player1Life = viewModel.startingLife
+                        viewModel.player2Life = viewModel.startingLife
+                        viewModel.player3Life = viewModel.startingLife
+                        viewModel.player4Life = viewModel.startingLife
+                        viewModel.changeLife.toggle()
+                    } label: {
+                        Text("40")
+                    }
+                    
                     Spacer()
                 }
             } else if viewModel.changePlayersNumbers {
                 Spacer()
-                Image(systemName: "person.2")
-                    .onTapGesture {
-                        viewModel.numberOfPlayers = 2
-                        viewModel.changePlayersNumbers.toggle()
-                    }
-                Spacer()
-                Image(systemName: "person.3")
-                    .onTapGesture {
-                        viewModel.numberOfPlayers = 3
-                        viewModel.changePlayersNumbers.toggle()
-                    }
-                Spacer()
-                ZStack {
+                
+                Button {
+                    viewModel.numberOfPlayers = 2
+                    viewModel.changePlayersNumbers.toggle()
+                } label: {
                     Image(systemName: "person.2")
-                    Image(systemName: "person.2")
-                        .offset(x: 35)
-                        .rotation3DEffect(
-                            .degrees(180),
-                            axis: (x: 0.0, y: 1.0, z: 0.0))
                 }
-                .onTapGesture {
+                
+                Spacer()
+                
+                Button {
+                    viewModel.numberOfPlayers = 3
+                    viewModel.changePlayersNumbers.toggle()
+                } label: {
+                    Image(systemName: "person.3")
+                }
+                
+                Spacer()
+                
+                Button {
                     viewModel.numberOfPlayers = 4
                     viewModel.changePlayersNumbers.toggle()
+                } label: {
+                    ZStack {
+                        Image(systemName: "person.2")
+                        Image(systemName: "person.2")
+                            .offset(x: 35)
+                            .rotation3DEffect(
+                                .degrees(180),
+                                axis: (x: 0.0, y: 1.0, z: 0.0))
+                    }
                 }
+                
                 Spacer()
             }
         }
@@ -112,6 +141,7 @@ struct MenuView: View {
         .foregroundStyle(.secondary)
         .frame(maxWidth: .infinity)
         .font(.title)
+        .background(.black)
     }
 }
 

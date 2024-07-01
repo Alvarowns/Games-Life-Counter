@@ -16,7 +16,6 @@ struct SinglePlayerViewHorizontal: View {
     @Binding var playerLife: Int
     @Binding var playerPoisonCounters: Int
     @Binding var playerColor: Color
-    @Binding var playerTexture: ImageResource
     @Binding var playerName: String
     @Binding var changeName: Bool
     @Binding var someoneWon: Bool
@@ -29,26 +28,25 @@ struct SinglePlayerViewHorizontal: View {
     var isLeftSide: Bool
     var isHalfDown: Bool
     var sizeClassFont: Font {
-            if horizontalSizeClass == .compact && verticalSizeClass == .regular {
-                // iPhone
-                return .title3
-            } else if horizontalSizeClass == .regular && verticalSizeClass == .regular {
-                // iPad
-                return .largeTitle
-            } else {
-                return .title3
-            }
+        if horizontalSizeClass == .compact && verticalSizeClass == .regular {
+            // iPhone
+            return .title2
+        } else if horizontalSizeClass == .regular && verticalSizeClass == .regular {
+            // iPad
+            return .largeTitle
+        } else {
+            return .title2
         }
+    }
     
     var body: some View {
         VStack {
             if isLeftSide {
                 if !isHalfDown {
                     HStack {
-                        ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 30))
-                        
                         Spacer()
                         
+                        ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title : .custom("iPad", size: 30))
                     }
                     .font(sizeClassFont)
                     .padding(.horizontal)
@@ -62,16 +60,17 @@ struct SinglePlayerViewHorizontal: View {
                         
                         Spacer()
                         
-                        Image(systemName: "crown")
-                            .onTapGesture {
-                                someoneWon.toggle()
-                                winnerName = playerName
-                            }
-                            .rotationEffect(.degrees(90))
-                            .font(sizeClassFont)
-                            .padding()
-                            .blur(radius: popOver ? 2.0 : 0.0)
-                            .disabled(popOver ? true : false)
+                        Button {
+                            someoneWon.toggle()
+                            winnerName = playerName
+                        } label: {
+                            Image(systemName: "crown")
+                        }
+                        .rotationEffect(.degrees(90))
+                        .font(sizeClassFont)
+                        .padding()
+                        .blur(radius: popOver ? 2.0 : 0.0)
+                        .disabled(popOver ? true : false)
                     }
                 }
             } else {
@@ -84,97 +83,105 @@ struct SinglePlayerViewHorizontal: View {
                         
                         Spacer()
                         
-                        Image(systemName: "crown")
-                            .onTapGesture {
-                                someoneWon.toggle()
-                                winnerName = playerName
-                            }
-                            .rotationEffect(.degrees(90))
-                            .font(sizeClassFont)
-                            .padding()
-                            .blur(radius: popOver ? 2.0 : 0.0)
-                            .disabled(popOver ? true : false)
+                        Button {
+                            someoneWon.toggle()
+                            winnerName = playerName
+                        } label: {
+                            Image(systemName: "crown")
+                        }
+                        .rotationEffect(.degrees(90))
+                        .font(sizeClassFont)
+                        .padding()
+                        .blur(radius: popOver ? 2.0 : 0.0)
+                        .disabled(popOver ? true : false)
                     }
                 } else {
                     
-                        HStack {
-                            ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 30))
-                            
-                            Spacer()
-                            
-                        }
-                        .font(sizeClassFont)
-                        .padding(.horizontal)
-                        .padding(.top)
-                        .fontWeight(.semibold)
+                    HStack {
+                        Spacer()
+                        ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title : .custom("iPad", size: 30))
+                    }
+                    .font(sizeClassFont)
+                    .padding(.horizontal)
+                    .padding(.top)
+                    .fontWeight(.semibold)
                 }
             }
             
             Spacer()
             
             ZStack {
-                    HStack {
-                        if poison {
-                            VStack(spacing: 50) {
-                                Button {
-                                    playerPoisonCounters -= 1
-                                } label: {
-                                    Image(systemName: "minus.circle")
-                                        .rotationEffect(.degrees(90))
-                                        .font(.title)
-                                }
-                                Text("\(playerPoisonCounters)")
-                                    .font(.largeTitle)
-                                    .lineLimit(1)
+                HStack {
+                    if poison {
+                        VStack(spacing: 50) {
+                            Button {
+                                playerPoisonCounters -= 1
+                            } label: {
+                                Image(systemName: "minus.circle")
                                     .rotationEffect(.degrees(90))
-                                Button {
-                                    playerPoisonCounters += 1
-                                } label: {
-                                    Image(systemName: "plus.circle")
-                                        .font(.title)
-                                }
+                                    .font(.title)
                             }
-                            .foregroundStyle(.black.opacity(0.3))
-                            .shadow(color: .black, radius: 1, x: 0, y: 1)
+                            .buttonRepeatBehavior(.enabled)
+                            
+                            Text("\(playerPoisonCounters)")
+                                .font(.largeTitle)
+                                .lineLimit(1)
+                                .rotationEffect(.degrees(90))
+                            
+                            Button {
+                                playerPoisonCounters += 1
+                            } label: {
+                                Image(systemName: "plus.circle")
+                                    .font(.title)
+                            }
+                            .buttonRepeatBehavior(.enabled)
+                        }
+                        .foregroundStyle(.black.opacity(0.3))
+                        .shadow(color: .black, radius: 1, x: 0, y: 1)
+                    }
+                    
+                    HStack {
+                        VStack(spacing: 50) {
+                            Button {
+                                playerLife -= 1
+                            } label: {
+                                Image(systemName: "minus.circle")
+                                    .font(horizontalSizeClass == .compact ? .largeTitle : .custom("iPad", size: 50))
+                                    .rotationEffect(.degrees(90))
+                            }
+                            .buttonRepeatBehavior(.enabled)
+                            
+                            Text("\(playerLife)")
+                                .font(horizontalSizeClass == .compact ? .custom("iPhone", size: fontSize) : .custom("iPad", size: 100))
+                                .rotationEffect(.degrees(90))
+                                .padding(.vertical, 2)
+                            
+                            Button {
+                                playerLife += 1
+                            } label: {
+                                Image(systemName: "plus.circle")
+                                    .font(horizontalSizeClass == .compact ? .largeTitle : .custom("iPad", size: 50))
+                            }
+                            .buttonRepeatBehavior(.enabled)
                         }
                         
-                        HStack {
-                            VStack(spacing: 50) {
-                                Button {
-                                    playerLife -= 1
-                                } label: {
-                                    Image(systemName: "minus.circle")
-                                        .font(horizontalSizeClass == .compact ? .largeTitle : .custom("iPad", size: 50))
-                                        .rotationEffect(.degrees(90))
-                                }
-                                
-                                Text("\(playerLife)")
-                                    .font(horizontalSizeClass == .compact ? .custom("iPhone", size: fontSize) : .custom("iPad", size: 100))
-                                    .rotationEffect(.degrees(90))
-                                
-                                Button {
-                                    playerLife += 1
-                                } label: {
-                                    Image(systemName: "plus.circle")
-                                        .font(horizontalSizeClass == .compact ? .largeTitle : .custom("iPad", size: 50))
-                                }
+                        Text(playerName)
+                            .multilineTextAlignment(.center)
+                            .rotationEffect(.degrees(90))
+                            .frame(width: 80,height: 250)
+                            .lineLimit(1)
+                            .font(.title3)
+                            .onTapGesture {
+                                changeName.toggle()
                             }
-                            
-                            Text(playerName)
-                                .multilineTextAlignment(.center)
-                                .rotationEffect(.degrees(90))
-                                .font(sizeClassFont)
-                                .onTapGesture {
-                                    changeName.toggle()
-                                }
-                            
-                        }
-                        .disabled(popOver ? true : false)
+                        
                     }
-                    .blur(radius: popOver ? 2.0 : 0.0)
-                    
+                    .disabled(popOver ? true : false)
+                }
+                .blur(radius: popOver ? 2.0 : 0.0)
+                
                 if popOver {
-                    ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, texture: $playerTexture, vertical: false)
+                    ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, vertical: false)
                         .rotationEffect(.degrees(90))
                 }
             }
@@ -184,42 +191,39 @@ struct SinglePlayerViewHorizontal: View {
             if isLeftSide {
                 if !isHalfDown {
                     HStack {
-                            PoisonButton(poison: $poison, padding: 8)
-                                .rotationEffect(.degrees(90))
-                                .scaleEffect(CGSize(width: 1.0, height: 1.0))
-                            
-                            Spacer()
-                            
+                        PoisonButton(poison: $poison, padding: 8)
+                            .rotationEffect(.degrees(90))
+                            .scaleEffect(CGSize(width: 1.0, height: 1.0))
+                        
+                        Spacer()
+                        
+                        Button {
+                            someoneWon.toggle()
+                            winnerName = playerName
+                        } label: {
                             Image(systemName: "crown")
-                                .onTapGesture {
-                                    someoneWon.toggle()
-                                    winnerName = playerName
-                                }
-                                .rotationEffect(.degrees(90))
-                                .font(sizeClassFont)
-                                .padding()
-                                .blur(radius: popOver ? 2.0 : 0.0)
-                                .disabled(popOver ? true : false)
+                        }
+                        .rotationEffect(.degrees(90))
+                        .font(sizeClassFont)
+                        .padding()
+                        .blur(radius: popOver ? 2.0 : 0.0)
+                        .disabled(popOver ? true : false)
                     }
                 } else {
-                        HStack {
-                            ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 30))
-                            
-                            Spacer()
-                            
-                        }
-                        .font(sizeClassFont)
-                        .padding(.horizontal)
-                        .padding(.bottom)
-                        .fontWeight(.semibold)
+                    HStack {
+                        Spacer()
+                        ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title : .custom("iPad", size: 30))
+                    }
+                    .font(sizeClassFont)
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    .fontWeight(.semibold)
                 }
             } else {
                 if !isHalfDown {
                     HStack {
-                        ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 30))
-                        
                         Spacer()
-                        
+                        ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title : .custom("iPad", size: 30))
                     }
                     .font(sizeClassFont)
                     .padding(.horizontal)
@@ -234,16 +238,17 @@ struct SinglePlayerViewHorizontal: View {
                         
                         Spacer()
                         
-                        Image(systemName: "crown")
-                            .onTapGesture {
-                                someoneWon.toggle()
-                                winnerName = playerName
-                            }
-                            .rotationEffect(.degrees(90))
-                            .font(sizeClassFont)
-                            .padding()
-                            .blur(radius: popOver ? 2.0 : 0.0)
-                            .disabled(popOver ? true : false)
+                        Button {
+                            someoneWon.toggle()
+                            winnerName = playerName
+                        } label: {
+                            Image(systemName: "crown")
+                        }
+                        .rotationEffect(.degrees(90))
+                        .font(sizeClassFont)
+                        .padding()
+                        .blur(radius: popOver ? 2.0 : 0.0)
+                        .disabled(popOver ? true : false)
                     }
                 }
             }
@@ -251,18 +256,18 @@ struct SinglePlayerViewHorizontal: View {
         .shadow(radius: 1)
         .foregroundStyle(.white)
         .background {
-                playerColor
-                    .onTapGesture {
-                        viewModel.changeLife = false
-                        viewModel.changePlayersNumbers = false
-                        popOver = false
-                    }
+            playerColor
+                .onTapGesture {
+                    viewModel.changeLife = false
+                    viewModel.changePlayersNumbers = false
+                    popOver = false
+                }
         }
         .bold()
     }
 }
 
 #Preview {
-    SinglePlayerViewHorizontal(playerLife: .constant(20), playerPoisonCounters: .constant(0), playerColor: .constant(.isleColor1), playerTexture: .constant(.wool), playerName: .constant("Player 1"), changeName: .constant(false), someoneWon: .constant(false), winnerName: .constant(""), fontSize: 150, isLeftSide: true, isHalfDown: false)
+    SinglePlayerViewHorizontal(playerLife: .constant(20), playerPoisonCounters: .constant(0), playerColor: .constant(.isleColor1), playerName: .constant("Player 1"), changeName: .constant(false), someoneWon: .constant(false), winnerName: .constant(""), fontSize: 150, isLeftSide: true, isHalfDown: false)
         .environmentObject(MainViewVM())
 }

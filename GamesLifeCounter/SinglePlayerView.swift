@@ -17,7 +17,6 @@ struct SinglePlayerView: View {
     @Binding var playerLife: Int
     @Binding var playerPoisonCounters: Int
     @Binding var playerColor: Color
-    @Binding var playerTexture: ImageResource
     @Binding var changeName: Bool
     @Binding var someoneWon: Bool
     @Binding var winnerName: String
@@ -30,19 +29,20 @@ struct SinglePlayerView: View {
     var body: some View {
         VStack {
             HStack {
-                ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 40))
+                ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title : .custom("iPad", size: 40))
                 
                 Spacer()
                 
-                
-                Image(systemName: "crown")
-                    .onTapGesture {
+                Button {
+                    
                         someoneWon.toggle()
                         winnerName = playerName
-                    }
-                    .font(horizontalSizeClass == .compact ? .title3 : .custom("iPad", size: 40))
-                    .blur(radius: popOver ? 2.0 : 0.0)
-                    .disabled(popOver ? true : false)
+                } label: {
+                    Image(systemName: "crown")
+                }
+                .font(horizontalSizeClass == .compact ? .title : .custom("iPad", size: 40))
+                .blur(radius: popOver ? 2.0 : 0.0)
+                .disabled(popOver ? true : false)
             }
             .font(.title)
             .padding(.horizontal)
@@ -68,6 +68,7 @@ struct SinglePlayerView: View {
                             Image(systemName: "minus.circle")
                                 .font(horizontalSizeClass == .compact ? .largeTitle : .custom("iPad", size: 100))
                         }
+                        .buttonRepeatBehavior(.enabled)
                         
                         Text("\(playerLife)")
                             .font(horizontalSizeClass == .compact ? .custom("iPhone", size: fontSize) : .custom("iPad", size: 240))
@@ -79,6 +80,7 @@ struct SinglePlayerView: View {
                             Image(systemName: "plus.circle")
                                 .font(horizontalSizeClass == .compact ? .largeTitle : .custom("iPad", size: 100))
                         }
+                        .buttonRepeatBehavior(.enabled)
                     }
                     .disabled(popOver ? true : false)
                     
@@ -90,15 +92,19 @@ struct SinglePlayerView: View {
                                 Image(systemName: "minus.circle")
                                     .font(.title)
                             }
+                            .buttonRepeatBehavior(.enabled)
+                            
                             Text("\(playerPoisonCounters)")
                                 .font(.largeTitle)
                                 .lineLimit(1)
+                            
                             Button {
                                 playerPoisonCounters += 1
                             } label: {
                                 Image(systemName: "plus.circle")
                                     .font(.title)
                             }
+                            .buttonRepeatBehavior(.enabled)
                         }
                         .foregroundStyle(.black.opacity(0.3))
                         .shadow(color: .black, radius: 1, x: 0, y: 1)
@@ -107,7 +113,7 @@ struct SinglePlayerView: View {
                 .blur(radius: popOver ? 2.0 : 0.0)
                 
                 if popOver {
-                    ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, texture: $playerTexture, vertical: true)
+                    ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, vertical: true)
                         .padding(.bottom)
                         .padding(.bottom)
                 }
@@ -126,23 +132,17 @@ struct SinglePlayerView: View {
         .bold()
         .frame(maxWidth: .infinity)
         .background {
-            ZStack {
-                Image(playerTexture)
-                    .resizable()
-                    .scaledToFill()
                 playerColor
-                    .blendMode(.multiply)
                     .onTapGesture {
                         viewModel.changeLife = false
                         viewModel.changePlayersNumbers = false
                         popOver = false
                     }
-            }
         }
     }
 }
 
 #Preview {
-    SinglePlayerView(playerName: .constant("Player 1"), playerLife: .constant(20), playerPoisonCounters: .constant(0), playerColor: .constant(.isleColor1), playerTexture: .constant(.wool), changeName: .constant(false), someoneWon: .constant(false), winnerName: .constant(""), fontSize: 150)
+    SinglePlayerView(playerName: .constant("Player 1"), playerLife: .constant(20), playerPoisonCounters: .constant(0), playerColor: .constant(.isleColor1), changeName: .constant(false), someoneWon: .constant(false), winnerName: .constant(""), fontSize: 150)
         .environmentObject(MainViewVM())
 }

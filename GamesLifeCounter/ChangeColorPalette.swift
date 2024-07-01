@@ -10,7 +10,6 @@ import SwiftUI
 struct ChangeColorPalette: View {
     @Binding var popOver: Bool
     @Binding var playerColor: Color
-    @Binding var texture: ImageResource
     
     var vertical: Bool
     
@@ -21,7 +20,6 @@ struct ChangeColorPalette: View {
                     .manaSymbols(vertical: vertical)
                     .onTapGesture {
                         playerColor = .isleColor1
-                        texture = .waves1
                         popOver = false
                     }
                 
@@ -29,7 +27,6 @@ struct ChangeColorPalette: View {
                     .manaSymbols(vertical: vertical)
                     .onTapGesture {
                         playerColor = .forestColor1
-                        texture = .forest1
                         popOver = false
                     }
                 
@@ -37,7 +34,6 @@ struct ChangeColorPalette: View {
                     .manaSymbols(vertical: vertical)
                     .onTapGesture {
                         playerColor = .mountainColor1
-                        texture = .fire1
                         popOver = false
                     }
                 
@@ -45,7 +41,6 @@ struct ChangeColorPalette: View {
                     .manaSymbols(vertical: vertical)
                     .onTapGesture {
                         playerColor = .plainsColor1
-                        texture = .wheat1
                         popOver = false
                     }
                 
@@ -53,7 +48,6 @@ struct ChangeColorPalette: View {
                     .manaSymbols(vertical: vertical)
                     .onTapGesture {
                         playerColor = .swamp
-                        texture = .swamp1
                         popOver = false
                     }
                 
@@ -113,5 +107,5 @@ struct ChangeColorPalette: View {
 }
 
 #Preview {
-    ChangeColorPalette(popOver: .constant(false), playerColor: .constant(.isleColor1), texture: .constant(.waves1), vertical: true)
+    ChangeColorPalette(popOver: .constant(false), playerColor: .constant(.isleColor1), vertical: true)
 }

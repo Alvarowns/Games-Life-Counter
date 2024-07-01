@@ -20,7 +20,6 @@ struct ChangeColorButton: View {
                 .font(font)
         }
         .fontWeight(.semibold)
-        .font(.title)
     }
 }
 

@@ -104,6 +104,14 @@ struct FormPlayersNames: View {
                 .opacity(viewModel.numberOfPlayers == 4 ? 1.0 : 0.0)
             }
         }
+        .background()
+        .onTapGesture {
+            hideKeyboard()
+        }
+    }
+    
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

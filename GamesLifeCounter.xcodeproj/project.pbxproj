@@ -19,6 +19,8 @@
 		C73E1D8E2BE23541001EA411 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = C73E1D8D2BE23541001EA411 /* GoogleMobileAds */; };
 		C73E1D922BE23600001EA411 /* AdMobBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73E1D912BE23600001EA411 /* AdMobBannerView.swift */; };
 		C743C5702BDCFD63007E58F4 /* ChangeColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C743C56F2BDCFD63007E58F4 /* ChangeColorButton.swift */; };
+		C754E7112C33111D00D036BB /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C754E7102C33111D00D036BB /* SplashView.swift */; };
+		C754E7152C33117900D036BB /* AppStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C754E7142C33117900D036BB /* AppStateView.swift */; };
 		C78FCF9D2BE0DFF800672133 /* FormPlayersNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78FCF9C2BE0DFF800672133 /* FormPlayersNames.swift */; };
 		C78FCFA12BE1065F00672133 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C78FCFA02BE1065F00672133 /* Localizable.xcstrings */; };
 		C797F44D2BDD7B3D001B2337 /* ChangeColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = C797F44C2BDD7B3D001B2337 /* ChangeColorPalette.swift */; };
@@ -43,6 +45,8 @@
 		C73E1D912BE23600001EA411 /* AdMobBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobBannerView.swift; sourceTree = "<group>"; };
 		C73E1D932BE23787001EA411 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C743C56F2BDCFD63007E58F4 /* ChangeColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorButton.swift; sourceTree = "<group>"; };
+		C754E7102C33111D00D036BB /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		C754E7142C33117900D036BB /* AppStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateView.swift; sourceTree = "<group>"; };
 		C78FCF9C2BE0DFF800672133 /* FormPlayersNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPlayersNames.swift; sourceTree = "<group>"; };
 		C78FCFA02BE1065F00672133 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		C797F44C2BDD7B3D001B2337 /* ChangeColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeColorPalette.swift; sourceTree = "<group>"; };
@@ -135,6 +139,8 @@
 		C733E9DD2BDCE9B3009C1D30 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C754E7142C33117900D036BB /* AppStateView.swift */,
+				C754E7102C33111D00D036BB /* SplashView.swift */,
 				C7096EAC2BDC44C300E90DD7 /* ContentView.swift */,
 				C733E9DE2BDCE9CD009C1D30 /* SinglePlayerView.swift */,
 				C797F4502BDD9F3F001B2337 /* SinglePlayerViewHorizontal.swift */,
@@ -252,8 +258,10 @@
 			files = (
 				C743C5702BDCFD63007E58F4 /* ChangeColorButton.swift in Sources */,
 				C78FCF9D2BE0DFF800672133 /* FormPlayersNames.swift in Sources */,
+				C754E7112C33111D00D036BB /* SplashView.swift in Sources */,
 				C79C1E032BDFFDB6002DB885 /* Matches.swift in Sources */,
 				C79C1E072BE003C2002DB885 /* MatchesList.swift in Sources */,
+				C754E7152C33117900D036BB /* AppStateView.swift in Sources */,
 				C797F44F2BDD8752001B2337 /* PoisonButton.swift in Sources */,
 				C797F4512BDD9F3F001B2337 /* SinglePlayerViewHorizontal.swift in Sources */,
 				C70C57A82BDD05A300486403 /* Extensions.swift in Sources */,
