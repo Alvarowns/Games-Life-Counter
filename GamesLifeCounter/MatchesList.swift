@@ -22,7 +22,7 @@ struct MatchesList: View {
                     
                     ForEach(Array(zip(match.players, match.decks)), id: \.0) { player, deck in
                         HStack {
-                            Image(systemName: "crown")
+                            Image(systemName: "crown.fill")
                                 .foregroundStyle(.yellow)
                                 .opacity(player == match.winner ? 1.0 : 0.0)
                                 .font(.footnote)

@@ -15,8 +15,8 @@ struct PoisonButton: View {
     var body: some View {
         Image(.poisonCounter)
             .resizable()
-            .scaledToFit()
-            .frame(maxWidth: 30)
+            .scaledToFill()
+            .frame(width: 20, height: 20)
             .padding(padding)
             .onTapGesture {
                 poison.toggle()

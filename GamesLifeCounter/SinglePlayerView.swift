@@ -84,31 +84,30 @@ struct SinglePlayerView: View {
                     }
                     .disabled(popOver ? true : false)
                     
-                    if poison {
-                        HStack(spacing: 50) {
-                            Button {
-                                playerPoisonCounters -= 1
-                            } label: {
-                                Image(systemName: "minus.circle")
-                                    .font(.title)
-                            }
-                            .buttonRepeatBehavior(.enabled)
-                            
-                            Text("\(playerPoisonCounters)")
-                                .font(.largeTitle)
-                                .lineLimit(1)
-                            
-                            Button {
-                                playerPoisonCounters += 1
-                            } label: {
-                                Image(systemName: "plus.circle")
-                                    .font(.title)
-                            }
-                            .buttonRepeatBehavior(.enabled)
+                    HStack(spacing: 50) {
+                        Button {
+                            playerPoisonCounters -= 1
+                        } label: {
+                            Image(systemName: "minus.circle")
+                                .font(.title)
                         }
-                        .foregroundStyle(.black.opacity(0.3))
-                        .shadow(color: .black, radius: 1, x: 0, y: 1)
+                        .buttonRepeatBehavior(.enabled)
+                        
+                        Text("\(playerPoisonCounters)")
+                            .font(.largeTitle)
+                            .lineLimit(1)
+                        
+                        Button {
+                            playerPoisonCounters += 1
+                        } label: {
+                            Image(systemName: "plus.circle")
+                                .font(.title)
+                        }
+                        .buttonRepeatBehavior(.enabled)
                     }
+                    .foregroundStyle(.black)
+                    .shadow(color: .black, radius: 0.6, x: 0, y: 1)
+                    .opacity(poison ? 1.0 : 0.0)
                 }
                 .blur(radius: popOver ? 2.0 : 0.0)
                 

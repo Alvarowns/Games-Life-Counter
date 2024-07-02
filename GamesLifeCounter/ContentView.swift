@@ -19,7 +19,7 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             let width4players = geometry.size.width / 2
-            let height4players = geometry.size.height / 2.22
+            let height4players = geometry.size.height / 2.19
             NavigationStack {
                 VStack(spacing: 0) {
                     if viewModel.numberOfPlayers == 2 {

@@ -67,7 +67,7 @@ struct SinglePlayerViewHorizontal: View {
                             Image(systemName: "crown")
                         }
                         .rotationEffect(.degrees(90))
-                        .font(sizeClassFont)
+                        .font(.title)
                         .padding()
                         .blur(radius: popOver ? 2.0 : 0.0)
                         .disabled(popOver ? true : false)
@@ -90,7 +90,7 @@ struct SinglePlayerViewHorizontal: View {
                             Image(systemName: "crown")
                         }
                         .rotationEffect(.degrees(90))
-                        .font(sizeClassFont)
+                        .font(.title)
                         .padding()
                         .blur(radius: popOver ? 2.0 : 0.0)
                         .disabled(popOver ? true : false)
@@ -112,33 +112,32 @@ struct SinglePlayerViewHorizontal: View {
             
             ZStack {
                 HStack {
-                    if poison {
-                        VStack(spacing: 50) {
-                            Button {
-                                playerPoisonCounters -= 1
-                            } label: {
-                                Image(systemName: "minus.circle")
-                                    .rotationEffect(.degrees(90))
-                                    .font(.title)
-                            }
-                            .buttonRepeatBehavior(.enabled)
-                            
-                            Text("\(playerPoisonCounters)")
-                                .font(.largeTitle)
-                                .lineLimit(1)
+                    VStack(spacing: 50) {
+                        Button {
+                            playerPoisonCounters -= 1
+                        } label: {
+                            Image(systemName: "minus.circle")
                                 .rotationEffect(.degrees(90))
-                            
-                            Button {
-                                playerPoisonCounters += 1
-                            } label: {
-                                Image(systemName: "plus.circle")
-                                    .font(.title)
-                            }
-                            .buttonRepeatBehavior(.enabled)
+                                .font(.title)
                         }
-                        .foregroundStyle(.black.opacity(0.3))
-                        .shadow(color: .black, radius: 1, x: 0, y: 1)
+                        .buttonRepeatBehavior(.enabled)
+                        
+                        Text("\(playerPoisonCounters)")
+                            .font(.largeTitle)
+                            .lineLimit(1)
+                            .rotationEffect(.degrees(90))
+                        
+                        Button {
+                            playerPoisonCounters += 1
+                        } label: {
+                            Image(systemName: "plus.circle")
+                                .font(.title)
+                        }
+                        .buttonRepeatBehavior(.enabled)
                     }
+                    .foregroundStyle(.black)
+                    .shadow(color: .black, radius: 0.6, x: 0, y: 1)
+                    .opacity(poison ? 1.0 : 0.0)
                     
                     HStack {
                         VStack(spacing: 50) {
@@ -204,7 +203,7 @@ struct SinglePlayerViewHorizontal: View {
                             Image(systemName: "crown")
                         }
                         .rotationEffect(.degrees(90))
-                        .font(sizeClassFont)
+                        .font(.title)
                         .padding()
                         .blur(radius: popOver ? 2.0 : 0.0)
                         .disabled(popOver ? true : false)
@@ -245,7 +244,7 @@ struct SinglePlayerViewHorizontal: View {
                             Image(systemName: "crown")
                         }
                         .rotationEffect(.degrees(90))
-                        .font(sizeClassFont)
+                        .font(.title)
                         .padding()
                         .blur(radius: popOver ? 2.0 : 0.0)
                         .disabled(popOver ? true : false)
