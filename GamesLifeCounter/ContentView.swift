@@ -28,9 +28,6 @@ struct ContentView: View {
                     
                     SinglePlayerView(playerName: $viewModel.player2Name, playerLife: $viewModel.player2Life, playerPoisonCounters: $viewModel.player2PoisonCounters, playerColor: $viewModel.player2Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName)
                 }
-#warning("adUnitId para testing, cambiar a la de producción cuando se haya subido a la App Store.")
-                AdMobBannerView(adUnitId: "ca-app-pub-3940256099942544/2435281174")
-                    .frame(width: GADAdSizeBanner.size.width, height: GADAdSizeBanner.size.height)
             }
         }
         .sheet(isPresented: $changeName) {

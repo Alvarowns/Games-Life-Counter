@@ -21,10 +21,21 @@ struct SinglePlayerView: View {
     @State private var popOver: Bool = false
     @State private var poison: Bool = false
     
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
+    var sizeClassFont: Font {
+        if horizontalSizeClass == .compact {
+            return .largeTitle
+        } else if horizontalSizeClass == .regular {
+            return .custom("", size: 100)
+        }
+        return .largeTitle
+    }
+    
     var body: some View {
         VStack {
             HStack {
-                ChangeColorButton(popOver: $popOver, font: .title)
+                ChangeColorButton(popOver: $popOver, font: horizontalSizeClass == .compact ? .title : .custom("ipad", size: 60))
                 
                 Spacer()
                 
@@ -34,11 +45,10 @@ struct SinglePlayerView: View {
                 } label: {
                     Image(systemName: "crown")
                 }
-                .font(.title)
+                .font(horizontalSizeClass == .compact ? .title : .custom("ipad", size: 60))
                 .blur(radius: popOver ? 2.0 : 0.0)
                 .disabled(popOver ? true : false)
             }
-            .font(.title)
             .padding(.horizontal)
             .padding(.top)
             .fontWeight(.semibold)
@@ -50,7 +60,7 @@ struct SinglePlayerView: View {
                         changeName.toggle()
                     } label: {
                         Text(playerName)
-                            .font(.largeTitle)
+                            .font(horizontalSizeClass == .compact ? .title : .custom("ipad", size: 80))
                             .multilineTextAlignment(.center)
                             .fontWeight(.medium)
                     }
@@ -60,18 +70,18 @@ struct SinglePlayerView: View {
                             playerLife -= 1
                         } label: {
                             Image(systemName: "minus.circle")
-                                .font(.largeTitle)
+                                .font(sizeClassFont)
                         }
                         .buttonRepeatBehavior(.enabled)
                         
                         Text("\(playerLife)")
-                            .font(.custom("", size: 120))
+                            .font(horizontalSizeClass == .compact ? .custom("iphone", size: 120) : .custom("ipad", size: 180))
                         
                         Button {
                             playerLife += 1
                         } label: {
                             Image(systemName: "plus.circle")
-                                .font(.largeTitle)
+                                .font(sizeClassFont)
                         }
                         .buttonRepeatBehavior(.enabled)
                     }
