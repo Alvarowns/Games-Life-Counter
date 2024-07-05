@@ -59,6 +59,12 @@ struct ContentView: View {
                 Button("No", role: .cancel) {}
             }
         }
+        .onAppear {
+            UIApplication.shared.isIdleTimerDisabled = true
+        }
+        .onDisappear {
+            UIApplication.shared.isIdleTimerDisabled = false
+        }
     }
     
     func recordMatch(winner: String) {
