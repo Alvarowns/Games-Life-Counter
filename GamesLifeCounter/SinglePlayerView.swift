@@ -89,11 +89,12 @@ struct SinglePlayerView: View {
                 }
                 .blur(radius: popOver ? 2.0 : 0.0)
                 
-                if popOver {
-                    ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, vertical: true)
-                        .padding(.bottom)
-                        .padding(.bottom)
-                }
+                
+                ChangeColorPalette(popOver: $popOver, playerColor: $playerColor, vertical: true)
+                    .opacity(popOver ? 1.0 : 0.0)
+                    .padding(.bottom)
+                    .padding(.bottom)
+                
             }
             
             Spacer()
@@ -103,12 +104,12 @@ struct SinglePlayerView: View {
         .bold()
         .frame(maxWidth: .infinity)
         .background {
-                playerColor
-                    .onTapGesture {
-                        viewModel.changeLife = false
-                        viewModel.changePlayersNumbers = false
-                        popOver = false
-                    }
+            playerColor
+                .onTapGesture {
+                    viewModel.changeLife = false
+                    viewModel.changePlayersNumbers = false
+                    popOver = false
+                }
         }
     }
 }

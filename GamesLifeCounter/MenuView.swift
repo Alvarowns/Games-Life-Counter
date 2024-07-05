@@ -47,13 +47,13 @@ struct MenuView: View {
                     
                     Spacer()
                     
-//                    Button {
-//                        viewModel.changePlayersNumbers.toggle()
-//                    } label: {
-//                        Image(systemName: "person.2")
-//                    }
-//                    
-//                    Spacer()
+                    Button {
+                        viewModel.changePlayersNumbers.toggle()
+                    } label: {
+                        Image(systemName: "person.2")
+                    }
+                    
+                    Spacer()
                 }
             } else if viewModel.changeLife {
                 Group {

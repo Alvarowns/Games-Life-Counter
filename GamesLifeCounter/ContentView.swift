@@ -18,26 +18,46 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
+            GeometryReader { geometry in
                 VStack(spacing: 0) {
-                    SinglePlayerView(playerName: $viewModel.player1Name, playerLife: $viewModel.player1Life, playerPoisonCounters: $viewModel.player1PoisonCounters, playerColor: $viewModel.player1Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName)
-                        .rotation3DEffect(.degrees(180), axis: (x: 0.0, y: 1.0, z: 0.0))
-                        .scaleEffect(x: 1, y: -1, anchor: .center)
+                    if viewModel.numberOfPlayers == 3 || viewModel.numberOfPlayers == 4 {
+                        HStack(spacing: 0) {
+                            PlayerView(playerName: $viewModel.player2Name, playerLife: $viewModel.player2Life, playerPoisonCounters: $viewModel.player2PoisonCounters, playerColor: $viewModel.player2Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, rotation: 90)
+//                            .frame(maxWidth: geometry.size.width / 2, maxHeight: geometry.size.height / 2)
+                            
+                            PlayerView(playerName: $viewModel.player3Name, playerLife: $viewModel.player3Life, playerPoisonCounters: $viewModel.player3PoisonCounters, playerColor: $viewModel.player3Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, rotation: -90)
+//                                .frame(maxWidth: geometry.size.width / 2, maxHeight: geometry.size.height / 2)
+                        }
+                    } else if viewModel.numberOfPlayers == 2 {
+                        SinglePlayerView(playerName: $viewModel.player2Name, playerLife: $viewModel.player2Life, playerPoisonCounters: $viewModel.player2PoisonCounters, playerColor: $viewModel.player2Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName)
+                            .rotation3DEffect(.degrees(180), axis: (x: 0.0, y: 1.0, z: 0.0))
+                            .scaleEffect(x: 1, y: -1, anchor: .center)
+                    }
                     
                     MenuView()
                     
-                    SinglePlayerView(playerName: $viewModel.player2Name, playerLife: $viewModel.player2Life, playerPoisonCounters: $viewModel.player2PoisonCounters, playerColor: $viewModel.player2Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName)
+                    if viewModel.numberOfPlayers == 4 {
+                        HStack(spacing: 0) {
+                            PlayerView(playerName: $viewModel.player1Name, playerLife: $viewModel.player1Life, playerPoisonCounters: $viewModel.player1PoisonCounters, playerColor: $viewModel.player1Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, rotation: 90)
+                            .frame(maxWidth: geometry.size.width / 2, maxHeight: geometry.size.height / 2)
+                            
+                            PlayerView(playerName: $viewModel.player4Name, playerLife: $viewModel.player4Life, playerPoisonCounters: $viewModel.player4PoisonCounters, playerColor: $viewModel.player4Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, rotation: -90)
+                                .frame(maxWidth: geometry.size.width / 2, maxHeight: geometry.size.height / 2)
+                        }
+                    } else {
+                        SinglePlayerView(playerName: $viewModel.player1Name, playerLife: $viewModel.player1Life, playerPoisonCounters: $viewModel.player1PoisonCounters, playerColor: $viewModel.player1Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName)
+                    }
                 }
             }
-        }
-        .sheet(isPresented: $changeName) {
-            FormPlayersNames(changeName: $changeName)
-        }
-        .alert(" \(winnerName) has won?", isPresented: $winner) {
-            Button("Yes"){
-                recordMatch(winner: winnerName)
+            .sheet(isPresented: $changeName) {
+                FormPlayersNames(changeName: $changeName)
             }
-            Button("No", role: .cancel) {}
+            .alert(" \(winnerName) has won?", isPresented: $winner) {
+                Button("Yes"){
+                    recordMatch(winner: winnerName)
+                }
+                Button("No", role: .cancel) {}
+            }
         }
     }
     

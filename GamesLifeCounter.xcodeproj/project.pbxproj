@@ -27,6 +27,7 @@
 		C797F44F2BDD8752001B2337 /* PoisonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C797F44E2BDD8752001B2337 /* PoisonButton.swift */; };
 		C79C1E032BDFFDB6002DB885 /* Matches.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79C1E022BDFFDB6002DB885 /* Matches.swift */; };
 		C79C1E072BE003C2002DB885 /* MatchesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79C1E062BE003C2002DB885 /* MatchesList.swift */; };
+		C7D7DB8A2C37FDCF00AAD70E /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D7DB892C37FDCF00AAD70E /* PlayerView.swift */; };
 		C7FBC6B92BEB717C00BFACF3 /* MoreColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FBC6B82BEB717C00BFACF3 /* MoreColorsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		C797F44E2BDD8752001B2337 /* PoisonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoisonButton.swift; sourceTree = "<group>"; };
 		C79C1E022BDFFDB6002DB885 /* Matches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matches.swift; sourceTree = "<group>"; };
 		C79C1E062BE003C2002DB885 /* MatchesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesList.swift; sourceTree = "<group>"; };
+		C7D7DB892C37FDCF00AAD70E /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		C7FBC6B82BEB717C00BFACF3 /* MoreColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreColorsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,7 @@
 				C754E7142C33117900D036BB /* AppStateView.swift */,
 				C754E7102C33111D00D036BB /* SplashView.swift */,
 				C7096EAC2BDC44C300E90DD7 /* ContentView.swift */,
+				C7D7DB892C37FDCF00AAD70E /* PlayerView.swift */,
 				C733E9DE2BDCE9CD009C1D30 /* SinglePlayerView.swift */,
 				C79C1E062BE003C2002DB885 /* MatchesList.swift */,
 				C743C56E2BDCFD4D007E58F4 /* Components */,
@@ -269,6 +272,7 @@
 				C7096EBB2BDC474B00E90DD7 /* DataTest.swift in Sources */,
 				C733E9DA2BDCE90E009C1D30 /* MainViewVM.swift in Sources */,
 				C73E1D922BE23600001EA411 /* AdMobBannerView.swift in Sources */,
+				C7D7DB8A2C37FDCF00AAD70E /* PlayerView.swift in Sources */,
 				C7FBC6B92BEB717C00BFACF3 /* MoreColorsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,7 +421,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AlvsiOSdev.GamesLifeCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -446,7 +450,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.AlvsiOSdev.GamesLifeCounter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
