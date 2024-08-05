@@ -22,6 +22,9 @@ struct PlayerView: View {
     @State private var texture: ImageResource?
     @State private var popOver: Bool = false
     @State private var poison: Bool = false
+    @State private var lifesCounter: Int = 0
+    @State private var lifesCounterSwitch: Bool = false
+    @State private var timer: Timer?
     
     var rotation: CGFloat
     
@@ -83,6 +86,7 @@ struct PlayerView: View {
                     HStack {
                         Button {
                             playerLife -= 1
+                            lifesCounter -= 1
                         } label: {
                             Image(systemName: "minus.circle")
                         }
@@ -90,11 +94,24 @@ struct PlayerView: View {
                         .buttonRepeatBehavior(.enabled)
                         .padding(.horizontal)
                         
-                        Text("\(playerLife)")
-                            .font(horizontalSizeClass == .compact ? lifeGreaterThan100 : .custom("ipad", size: 160))
+                        VStack(spacing: 0) {
+                            Text(lifesCounter > 0 ? "+\(lifesCounter)" : "\(lifesCounter)")
+                                .shadowPop()
+                                .font(.body)
+                                .foregroundStyle(lifesCounter > 0 ? .white : .red)
+                                .opacity(lifesCounterSwitch && lifesCounter != 0 ? 1.0 : 0.0)
+                                .onChange(of: lifesCounter) {
+                                    lifesCounterSwitch = true
+                                    restartTimer()
+                                }
+                            
+                            Text("\(playerLife)")
+                                .font(horizontalSizeClass == .compact ? lifeGreaterThan100 : .custom("ipad", size: 160))
+                        }
                         
                         Button {
                             playerLife += 1
+                            lifesCounter += 1
                         } label: {
                             Image(systemName: "plus.circle")
                         }
@@ -121,6 +138,15 @@ struct PlayerView: View {
                         .padding(.bottom)
                 
             }
+        }
+    }
+    
+    private func restartTimer() {
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
+            lifesCounterSwitch = false
+            lifesCounter = 0
         }
     }
 }
