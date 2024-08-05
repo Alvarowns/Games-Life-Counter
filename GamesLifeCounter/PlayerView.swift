@@ -96,9 +96,8 @@ struct PlayerView: View {
                         
                         VStack(spacing: 0) {
                             Text(lifesCounter > 0 ? "+\(lifesCounter)" : "\(lifesCounter)")
-                                .shadowPop()
                                 .font(.body)
-                                .foregroundStyle(lifesCounter > 0 ? .white : .red)
+                                .foregroundStyle(.white)
                                 .opacity(lifesCounterSwitch && lifesCounter != 0 ? 1.0 : 0.0)
                                 .onChange(of: lifesCounter) {
                                     lifesCounterSwitch = true
