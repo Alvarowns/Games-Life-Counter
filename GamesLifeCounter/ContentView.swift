@@ -23,10 +23,8 @@ struct ContentView: View {
                     if viewModel.numberOfPlayers == 3 || viewModel.numberOfPlayers == 4 {
                         HStack(spacing: 0) {
                             PlayerView(playerName: $viewModel.player2Name, playerLife: $viewModel.player2Life, playerPoisonCounters: $viewModel.player2PoisonCounters, playerColor: $viewModel.player2Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, rotation: 90)
-//                            .frame(maxWidth: geometry.size.width / 2, maxHeight: geometry.size.height / 2)
                             
                             PlayerView(playerName: $viewModel.player3Name, playerLife: $viewModel.player3Life, playerPoisonCounters: $viewModel.player3PoisonCounters, playerColor: $viewModel.player3Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName, rotation: -90)
-//                                .frame(maxWidth: geometry.size.width / 2, maxHeight: geometry.size.height / 2)
                         }
                     } else if viewModel.numberOfPlayers == 2 {
                         SinglePlayerView(playerName: $viewModel.player2Name, playerLife: $viewModel.player2Life, playerPoisonCounters: $viewModel.player2PoisonCounters, playerColor: $viewModel.player2Color, changeName: $changeName, someoneWon: $winner, winnerName: $winnerName)

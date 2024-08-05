@@ -19,10 +19,28 @@ struct PlayerView: View {
     @Binding var someoneWon: Bool
     @Binding var winnerName: String
     
+    @State private var texture: ImageResource?
     @State private var popOver: Bool = false
     @State private var poison: Bool = false
     
     var rotation: CGFloat
+    
+    var sizeClassFont: Font {
+        if horizontalSizeClass == .compact {
+            return .custom("iphone", size: 50)
+        } else if horizontalSizeClass == .regular {
+            return .custom("ipad", size: 100)
+        }
+        return .custom("iphone", size: 50)
+    }
+    
+    var lifeGreaterThan100: Font {
+        if playerLife > 99 {
+            return .custom(">99", size: 80)
+        } else {
+            return .custom("<99", size: 100)
+        }
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -68,19 +86,19 @@ struct PlayerView: View {
                         } label: {
                             Image(systemName: "minus.circle")
                         }
-                        .font(horizontalSizeClass == .compact ? .largeTitle : .custom("ipad", size: 100))
+                        .font(sizeClassFont)
                         .buttonRepeatBehavior(.enabled)
                         .padding(.horizontal)
                         
                         Text("\(playerLife)")
-                            .font(horizontalSizeClass == .compact ? .custom("iphone", size: 100) : .custom("ipad", size: 160))
+                            .font(horizontalSizeClass == .compact ? lifeGreaterThan100 : .custom("ipad", size: 160))
                         
                         Button {
                             playerLife += 1
                         } label: {
                             Image(systemName: "plus.circle")
                         }
-                        .font(horizontalSizeClass == .compact ? .largeTitle : .custom("ipad", size: 100))
+                        .font(sizeClassFont)
                         .buttonRepeatBehavior(.enabled)
                         .padding(.horizontal)
                     }

@@ -16,7 +16,7 @@ struct MoreColorsView: View {
         RoundedRectangle(cornerRadius: 10)
             .frame(width: width, height: height)
             .foregroundStyle(color.opacity(0.9))
-            .shadow(radius: 2)
+            .shadowPop()
     }
 }
 

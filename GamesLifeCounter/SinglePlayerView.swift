@@ -20,16 +20,27 @@ struct SinglePlayerView: View {
     
     @State private var popOver: Bool = false
     @State private var poison: Bool = false
+    @State private var lifesCounter: Int = 0
+    @State private var lifesCounterSwitch: Bool = false
+    @State private var timer: Timer?
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     var sizeClassFont: Font {
         if horizontalSizeClass == .compact {
-            return .largeTitle
+            return .custom("iphone", size: 55)
         } else if horizontalSizeClass == .regular {
-            return .custom("", size: 100)
+            return .custom("ipad", size: 100)
         }
-        return .largeTitle
+        return .custom("iphone", size: 55)
+    }
+    
+    var lifeGreaterThan100: Font {
+        if playerLife > 99 {
+            return .custom(">99", size: 100)
+        } else {
+            return .custom("<99", size: 120)
+        }
     }
     
     var body: some View {
@@ -65,27 +76,41 @@ struct SinglePlayerView: View {
                             .fontWeight(.medium)
                     }
                     
-                    HStack(spacing: 50) {
-                        Button {
-                            playerLife -= 1
-                        } label: {
-                            Image(systemName: "minus.circle")
-                                .font(sizeClassFont)
+                        HStack(spacing: 50) {
+                            Button {
+                                playerLife -= 1
+                                lifesCounter -= 1
+                            } label: {
+                                Image(systemName: "minus.circle")
+                                    .font(sizeClassFont)
+                            }
+                            .buttonRepeatBehavior(.enabled)
+                            
+                            VStack(spacing: 0) {
+                                Text(lifesCounter > 0 ? "+\(lifesCounter)" : "\(lifesCounter)")
+                                    .shadowPop()
+                                    .font(.callout)
+                                    .foregroundStyle(lifesCounter > 0 ? .white : .red)
+                                    .opacity(lifesCounterSwitch && lifesCounter != 0 ? 1.0 : 0.0)
+                                    .onChange(of: lifesCounter) {
+                                        lifesCounterSwitch = true
+                                        restartTimer()
+                                    }
+                                
+                                Text("\(playerLife)")
+                                    .font(horizontalSizeClass == .compact ? lifeGreaterThan100 : .custom("ipad", size: 180))
+                            }
+                            
+                            Button {
+                                playerLife += 1
+                                lifesCounter += 1
+                            } label: {
+                                Image(systemName: "plus.circle")
+                                    .font(sizeClassFont)
+                            }
+                            .buttonRepeatBehavior(.enabled)
                         }
-                        .buttonRepeatBehavior(.enabled)
-                        
-                        Text("\(playerLife)")
-                            .font(horizontalSizeClass == .compact ? .custom("iphone", size: 120) : .custom("ipad", size: 180))
-                        
-                        Button {
-                            playerLife += 1
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .font(sizeClassFont)
-                        }
-                        .buttonRepeatBehavior(.enabled)
-                    }
-                    .disabled(popOver ? true : false)
+                        .disabled(popOver ? true : false)
                 }
                 .blur(radius: popOver ? 2.0 : 0.0)
                 
@@ -110,6 +135,15 @@ struct SinglePlayerView: View {
                     viewModel.changePlayersNumbers = false
                     popOver = false
                 }
+        }
+    }
+    
+    private func restartTimer() {
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { _ in
+            lifesCounterSwitch = false
+            lifesCounter = 0
         }
     }
 }

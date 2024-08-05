@@ -12,7 +12,17 @@ extension Image {
         self
             .resizable()
             .scaledToFit()
-            .frame(width: vertical ? 45 : 32, height: vertical ? 45 : 32)
-            .shadow(radius: 2)
+            .frame(width: vertical ? 45 : 35, height: vertical ? 45 : 35)
+            .shadowPop()
+    }
+}
+
+extension View {
+    func shadowPop() -> some View {
+        self
+            .shadow(radius: 0.4)
+            .shadow(radius: 0.4)
+            .shadow(radius: 0.4)
+            .shadow(radius: 0.4)
     }
 }

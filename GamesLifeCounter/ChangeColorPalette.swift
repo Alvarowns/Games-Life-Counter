@@ -47,33 +47,33 @@ struct ChangeColorPalette: View {
                 Image(.blackMana)
                     .manaSymbols(vertical: vertical)
                     .onTapGesture {
-                        playerColor = .swamp
+                        playerColor = .swampColor1
                         popOver = false
                     }
                 
             }
             HStack {
-                MoreColorsView(color: .honeydew, width: 28, height: 28)
+                MoreColorsView(color: .honeydew, width: 35, height: 35)
                     .onTapGesture {
                         playerColor = .honeydew.opacity(0.9)
                         popOver = false
                     }
-                MoreColorsView(color: .banana, width: 28, height: 28)
+                MoreColorsView(color: .banana, width: 35, height: 35)
                     .onTapGesture {
                         playerColor = .banana.opacity(0.9)
                         popOver = false
                     }
-                MoreColorsView(color: .spindrift, width: 28, height: 28)
+                MoreColorsView(color: .spindrift, width: 35, height: 35)
                     .onTapGesture {
                         playerColor = .spindrift.opacity(0.9)
                         popOver = false
                     }
-                MoreColorsView(color: .sky, width: 28, height: 28)
+                MoreColorsView(color: .sky, width: 35, height: 35)
                     .onTapGesture {
                         playerColor = .sky.opacity(0.9)
                         popOver = false
                     }
-                MoreColorsView(color: .flora, width: 28, height: 28)
+                MoreColorsView(color: .flora, width: 35, height: 35)
                     .onTapGesture {
                         playerColor = .flora.opacity(0.9)
                         popOver = false
@@ -81,22 +81,22 @@ struct ChangeColorPalette: View {
             }
             
             HStack {
-                MoreColorsView(color: .orchid, width: 28, height: 28)
+                MoreColorsView(color: .orchid, width: 35, height: 35)
                     .onTapGesture {
                         playerColor = .orchid.opacity(0.9)
                         popOver = false
                     }
-                MoreColorsView(color: .salmon, width: 28, height: 28)
+                MoreColorsView(color: .salmon, width: 35, height: 35)
                     .onTapGesture {
                         playerColor = .salmon.opacity(0.9)
                         popOver = false
                     }
-                MoreColorsView(color: .bubblegum, width: 28, height: 28)
+                MoreColorsView(color: .bubblegum, width: 35, height: 35)
                     .onTapGesture {
                         playerColor = .bubblegum.opacity(0.9)
                         popOver = false
                     }
-                MoreColorsView(color: .metal, width: 28, height: 28)
+                MoreColorsView(color: .metal, width: 35, height: 35)
                     .onTapGesture {
                         playerColor = .metal.opacity(0.9)
                         popOver = false

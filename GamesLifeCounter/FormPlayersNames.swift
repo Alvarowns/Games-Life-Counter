@@ -44,15 +44,6 @@ struct FormPlayersNames: View {
                         viewModel.player4Deck = player4Deck
                     }
                     
-                    player1NewName = ""
-                    player2NewName = ""
-                    player3NewName = ""
-                    player4NewName = ""
-                    
-                    player1Deck = ""
-                    player2Deck = ""
-                    player3Deck = ""
-                    player4Deck = ""
                     changeName.toggle()
                 }
                 .padding(.horizontal)
